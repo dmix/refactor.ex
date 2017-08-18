@@ -92,7 +92,7 @@ defmodule Refactor do
         rename(options[:from], options[:to], options[:file])
         IO.puts "Done."
       else
-        IO.error(Enum.join(["File does not exist:", options[:file]]))
+        IO.puts(Enum.join(["Error - File does not exist:", options[:file]]))
       end
     else
       IO.puts "Required arguments:\n\n\t\t--from, -f\n\t\t--to, -t\n\t\t--file, -f\n"

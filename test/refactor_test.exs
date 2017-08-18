@@ -10,9 +10,9 @@ defmodule RefactorTest do
     ["comments", "categories"],
     ["comment",  "category"]
   ]
-  @sample "./sample.ex"
-  @input  "./sample_input.ex"
-  @output "./sample_refactored.ex"
+  @sample "./test/samples/example.ex"
+  @input  "./test/samples/example_input.ex"
+  @output "./test/samples/example_refactored.ex"
 
   test "generates patterns" do
     assert Refactor.patterns(@from, @to) == @patterns

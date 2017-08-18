@@ -19,6 +19,8 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
-sample_input.ex
+*.DS_Store
 Session.vim
-.DS_Store
+
+/sample_input.ex
+/refactor
