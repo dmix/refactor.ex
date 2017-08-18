@@ -1,4 +1,4 @@
-# Refactor.ex
+# :crystal_ball: Refactor.ex 
 
 A commandline utility to make refactoring projects easier. Currently the primary use-case is renaming constants/models/modules/etc. 
 
