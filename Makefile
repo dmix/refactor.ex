@@ -6,7 +6,7 @@ test:
 
 clean:
 	@rm -f ./refactor
-	@rm -f ./sample_refactored.ex
+	@rm -f ./test/sample/example_refactored.ex
 
 build: clean
 	@mix escript.build 

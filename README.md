@@ -13,14 +13,16 @@ Would replace these strings in `example.ex`:
     tag  -> category
     tags -> categories
 
-### Features
+## Features
 
-[x] Rename models/constants
-[ ] Accept glob patterns to process multiple files 
-[ ] Process each file async
-[ ] Also rename filenames (optionally)
-[ ] Print count of strings that were replaced 
-[ ] Rename functions
+- [x] Rename models/constants
+    - [x] Find/replace strings in a single file
+    - [x] Auto generate varations of pattern (capitalize, lowercase, pluralization)
+    - [ ] Support glob patterns or multiple files (--files one.ex,two.ex)
+    - [ ] Async: process multiple files at once
+    - [ ] Print # of strings replaced 
+- [ ] Rename filenames too (optionally)
+- [ ] Rename functions feature
 
 ## Example
 
