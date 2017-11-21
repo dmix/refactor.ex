@@ -81,12 +81,33 @@ defmodule Refactor do
 
   def main(args) do
     {options, _, _} = OptionParser.parse(args,
-      strict: [from: :string, to: :string, file: :string],
-      aliases: [f: :from, t: :to, p: :file]
+      strict: [from: :string, to: :string, file: :string, dir: :string],
+      aliases: [f: :from, t: :to, p: :file, d: :dir]
     )
+    do_main(options |> Map.new)
+  end
+
+  defp do_main(%{dir: directory } = options) do
     IO.puts "Elixir Refactor Utility"
     IO.puts "---"
-    if length(options) == 3 do
+    if length(Map.keys(options)) == 3 do
+      if File.dir?(directory) do
+        file_paths = FlatFiles.list_all(directory)
+        options = Map.delete(options, :dir)
+        Enum.each(file_paths, &do_main(Map.put(options, :file, &1)))
+      end
+    else
+      IO.puts "Required arguments:\n\n\t\t--from, -f\n\t\t--to, -t\n\t\t--dir, -d\n"
+      IO.puts "For example:\n"
+      IO.puts "\t\t./refactor --from Comment --to Category --dir ./lib\n"
+      IO.puts "\t\t./refactor -f Comment -t Category -d ./lib\n"
+    end
+  end
+
+  defp do_main(options) do
+    IO.puts "Elixir Refactor Utility"
+    IO.puts "---"
+    if length(Map.keys(options)) == 3 do
       if File.exists?(options[:file]) do
         IO.puts Enum.join(["Renaming:", options[:from], "->", options[:to], "in", options[:file]], " ")
         rename(options[:from], options[:to], options[:file])
