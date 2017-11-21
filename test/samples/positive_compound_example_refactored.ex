@@ -1,11 +1,11 @@
 def fixture(:admin) do
-  {:ok, admin} = Admin.create_admin(valid_attrs())
+  {:ok, admin} = Admin.create_user(valid_attrs())
   admin
 end
 
 describe "Admin" do
   test "admin index requires authentication", %{conn: conn} do
-    admins_path(conn, :index)
+    users_path(conn, :index)
   end
 end
 

@@ -6,8 +6,8 @@ defmodule Refactor do
   """
 
   @doc """
-  Generates list of patterns to pass to a find/replace function           
-  including pluralized and upper/lower-case variations of the 
+  Generates list of patterns to pass to a find/replace function
+  including pluralized and upper/lower-case variations of the
   provided from/to strings.
 
   ## Examples
@@ -46,9 +46,9 @@ defmodule Refactor do
 
   """
   def replace(content, patterns) do
-    Enum.reduce(patterns, content, fn(pattern, acc) -> 
+    Enum.reduce(patterns, content, fn(pattern, acc) ->
       [from, to] = pattern
-      String.replace(acc, from, to, global: true)
+      String.replace(acc, ~r/\b(#{from})\b/, to)
     end)
   end
 
@@ -80,7 +80,7 @@ defmodule Refactor do
   end
 
   def main(args) do
-    {options, _, _} = OptionParser.parse(args, 
+    {options, _, _} = OptionParser.parse(args,
       strict: [from: :string, to: :string, file: :string],
       aliases: [f: :from, t: :to, p: :file]
     )
