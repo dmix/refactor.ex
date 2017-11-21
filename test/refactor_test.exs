@@ -17,7 +17,7 @@ defmodule RefactorTest do
   test "generates patterns" do
     assert Refactor.patterns(@from, @to) == @patterns
   end
-  
+
   test "replaces strings in file" do
     {:ok, input}  = File.read @sample
     refute Refactor.replace(input, @patterns) =~ @from
@@ -28,7 +28,7 @@ defmodule RefactorTest do
     :ok = Refactor.rename(@from, @to, @input)
     {:ok, input}  = File.read @input
     {:ok, output} = File.read @output
+    on_exit(:cleanup, fn -> :ok = File.rm(@input) end)
     assert input == output
-    :ok = File.rm(@input)
   end
 end
