@@ -1,6 +1,6 @@
 def fixture(:category) do
   {:ok, category} = Category.create_category(valid_attrs())
-  category 
+  category
 end
 
 describe "Categories" do

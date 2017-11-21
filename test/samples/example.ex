@@ -1,10 +1,10 @@
-def fixture(:category) do
-  {:ok, category} = Category.create_category(valid_attrs())
-  category 
+def fixture(:comment) do
+  {:ok, comment} = Comment.create_category(valid_attrs())
+  comment
 end
 
-describe "Categories" do
-  test "categories index requires authentication", %{conn: conn} do
+describe "Comments" do
+  test "comments index requires authentication", %{conn: conn} do
     categories_path(conn, :index)
   end
 end
