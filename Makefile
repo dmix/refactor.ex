@@ -1,6 +1,9 @@
 BIN_DIR=/usr/local/bin
 MIX_ENV=production
 
+deps:
+	@mix deps.get
+
 test:
 	@mix test.watch
 

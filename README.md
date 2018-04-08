@@ -20,7 +20,8 @@ Would replace these strings in `example.ex`:
     - [x] Auto generate varations of pattern (capitalize, lowercase, pluralization)
     - [ ] Support glob patterns or multiple files (--files one.ex,two.ex)
     - [ ] Async: process multiple files at once
-    - [ ] Print # of strings replaced 
+    - [ ] Print # of strings replaced
+    - [ ] Verbose mode to list all individual changes  + line number
 - [ ] Rename filenames too (optionally)
 - [ ] Rename functions feature
 
@@ -54,7 +55,7 @@ Use program in the current directory:
 
     ./refactor --from A --to B --file ./sample_test.ex
 
-Or install to /usr/local/bin/refactor
+Or install to `/usr/local/bin/refactor`
 
     make install
 
@@ -62,20 +63,18 @@ Or install to /usr/local/bin/refactor
 
     Required arguments:
 
-                    --from, -f = Name of existing model/contant to rename
-                    --to, -t   = Name of new constant to replace it with
-                    --file, -f = File to replace strings in
+        --from, -f = Name of existing model/contant to rename
+        --to,   -t = Name of new constant to replace it with
+        --file, -p = Filepath to replace strings in
 
     For example:
 
-                    ./refactor --from Comment --to Category --file ./sample_test.ex
+        ./refactor --from Comment --to Category --file ./sample_test.ex
 
-                    ./refactor -f Comment -t Category -p ./sample_test.ex
-
+        ./refactor -f Comment -t Category -p ./sample_test.ex
 
 ## License
 
 GNU v3
 
 By Daniel P. McGrady - https://dmix.ca
-

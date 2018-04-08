@@ -6,7 +6,10 @@ defmodule Refactor.Mixfile do
       app: :refactor,
       version: "0.1.0",
       elixir: "~> 1.5",
-      escript: [main_module: Refactor],
+      escript: [
+        main_module: Refactor,
+        strip_beam: true
+      ],
       start_permanent: Mix.env == :prod,
       deps: deps(),
       aliases: aliases(),
@@ -23,8 +26,8 @@ defmodule Refactor.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:mix_test_watch, "~> 0.3", only: [:dev, :test], runtime: false},
       {:inflex, "~> 1.8.0"},
+      {:mix_test_watch, "~> 0.3", only: [:dev, :test], runtime: false},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
     ]
   end
